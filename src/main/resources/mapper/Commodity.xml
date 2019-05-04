@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="vc.xji.empty.mapper.CommodityMapper">
+    <resultMap id="CommodityMap" type="vc.xji.empty.entity.Commodity">
+
+        <id column="commodity_id" property="commodityId" jdbcType="INTEGER"/>
+        <result column="commodity_name" property="commodityName" jdbcType="VARCHAR"/>
+        <result column="commodity_intro" property="commodityIntro" jdbcType="VARCHAR"/>
+        <result column="commodity_cover_path" property="commodityCoverPath" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <insert id="insertCommodity" parameterType="vc.xji.empty.entity.Commodity" useGeneratedKeys="true" keyProperty="icommodity_id">
+        insert into commodity (commodity_id,commodity_name,commodity_intro,commodity_cover_path) values (null,#{commodityName,jdbcType=VARCHAR},#{commodityIntro,jdbcType=VARCHAR},#{commodityCoverPath,jdbcType=VARCHAR})
+
+    </insert>
+
+    <select id="selectCommdityById" parameterType="java.lang.Integer" resultMap="CommodityMap">
+        select * from commodity where commodity_id=#{commodity_id};
+
+    </select>
+
+</mapper>
