@@ -19,4 +19,9 @@
 
     </select>
 
+    <select id="selectCommdityAll" resultMap="CommodityMap">
+        select * from commodity;
+
+    </select>
+
 </mapper>

@@ -7,6 +7,8 @@ import vc.xji.empty.entity.Commodity;
 import vc.xji.empty.mapper.CommodityMapper;
 import vc.xji.empty.service.CommodityService;
 
+import java.util.List;
+
 @Service
 public class CommodityServiceImp extends ServiceImpl<CommodityMapper, Commodity> implements CommodityService {
 
@@ -24,5 +26,10 @@ public class CommodityServiceImp extends ServiceImpl<CommodityMapper, Commodity>
 
 
         return commodityMapper.selectCommdityById(commodity_id);
+    }
+
+    @Override
+    public List<Commodity> selectCommdityAll() {
+        return  commodityMapper.selectCommdityAll();
     }
 }
